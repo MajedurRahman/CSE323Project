@@ -31,26 +31,6 @@ public class MainActivity extends AppCompatActivity {
                 this.getSystemService(this.ACTIVITY_SERVICE);
         Timer timer = new Timer(" - Thread 1");
 
-      /*  timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                Log.e("Period ", " : " + i++ + Thread.currentThread().getName());
-
-                // Toast.makeText(MainActivity.this, ""+i, Toast.LENGTH_SHORT).show();
-            }
-        }, 1000, 1000);
-
-        Timer timer2 = new Timer(" - Thread 2");
-        timer2.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                Log.e("Task Period 2 ", " : " + j++ + Thread.currentThread().getName());
-
-                // Toast.makeText(MainActivity.this, ""+i, Toast.LENGTH_SHORT).show();
-            }
-        }, 1000, 1000);
-        */
-        
         final List<ActivityManager.RunningAppProcessInfo> procInfos = actvityManager.getRunningAppProcesses();
 
         findViewById(R.id.taskButton).setOnClickListener(new View.OnClickListener() {
@@ -59,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
                 for (ActivityManager.RunningAppProcessInfo runningProInfo : procInfos) {
 
+
+                    Toast.makeText(MainActivity.this, runningProInfo.pid + "", Toast.LENGTH_SHORT).show();
                     Log.d("Running Processes", "()()" + runningProInfo.pid);
                 }
 
@@ -79,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,AppPermissionActivity.class));
             }
         });
+
+
+        getProcess();
     }
 
 
@@ -103,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 PackageInfo packageInfo = process.getPackageInfo(this, 0);
                // String appName = packageInfo.applicationInfo.loadLabel(pm).toString();
 
+                Toast.makeText(this, processes.size(), Toast.LENGTH_SHORT).show();
                 Log.e("Process : " , " Library : " + pid);
             } catch (Exception ex) {
 

@@ -17,16 +17,12 @@ public class ApplicationProcess extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_application_process);
-
-
         context = getApplicationContext();
-
         activitymanager = (ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);
-
         RAP = activitymanager.getRunningAppProcesses();
 
         for(ActivityManager.RunningAppProcessInfo processInfo: RAP ){
-            Toast.makeText(context, ""+ RAP.size(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, ""+processInfo.processName , Toast.LENGTH_SHORT).show();
            Log.e("Application Process : " , processInfo.processName + "\n");
 
         }
