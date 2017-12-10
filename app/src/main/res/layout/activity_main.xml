@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
     tools:context="cse232.rahman.majedur.cse323project.MainActivity">
 
 
@@ -13,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:hint="Get Activity Level Process"
-        android:layout_margin="10dp"
+
         android:layout_alignParentBottom="true"/>
 
     <Button
@@ -23,7 +25,15 @@
         android:layout_alignBottom="@+id/taskButton"
         android:layout_alignLeft="@+id/taskButton"
         android:layout_alignStart="@+id/taskButton"
-        android:layout_marginBottom="47dp"
         android:hint="Get Application Level Process" />
+    <Button
+        android:id="@+id/permission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/taskButton"
+        android:layout_alignLeft="@+id/taskButton"
+        android:layout_alignStart="@+id/taskButton"
 
-</RelativeLayout>
+        android:hint="Application Permission" />
+
+</LinearLayout>

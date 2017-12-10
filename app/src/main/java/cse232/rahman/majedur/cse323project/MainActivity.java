@@ -28,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final ActivityManager actvityManager = (ActivityManager)
-                this.getSystemService(ACTIVITY_SERVICE);
+                this.getSystemService(this.ACTIVITY_SERVICE);
         Timer timer = new Timer(" - Thread 1");
 
-        timer.scheduleAtFixedRate(new TimerTask() {
+      /*  timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 Log.e("Period ", " : " + i++ + Thread.currentThread().getName());
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 // Toast.makeText(MainActivity.this, ""+i, Toast.LENGTH_SHORT).show();
             }
         }, 1000, 1000);
-        
+        */
         
         final List<ActivityManager.RunningAppProcessInfo> procInfos = actvityManager.getRunningAppProcesses();
 
@@ -70,6 +70,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this,ApplicationProcess.class));
+            }
+        });
+
+        findViewById(R.id.permission).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,AppPermissionActivity.class));
             }
         });
     }
