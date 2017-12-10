@@ -16,12 +16,11 @@ public class AppPermissionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_permission);
 
-
         PackageManager pm = getPackageManager();
         List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
 
         for (ApplicationInfo applicationInfo : packages) {
-            Log.d("test", "App: " + applicationInfo.name + " Package: " + applicationInfo.packageName);
+            Log.d("test", "App:  " + applicationInfo.name + " Package: " + applicationInfo.packageName);
 
             try {
                 PackageInfo packageInfo = pm.getPackageInfo(applicationInfo.packageName, PackageManager.GET_PERMISSIONS);
@@ -31,7 +30,7 @@ public class AppPermissionActivity extends AppCompatActivity {
 
                 if (requestedPermissions != null) {
                     for (int i = 0; i < requestedPermissions.length; i++) {
-                        Log.d("test", requestedPermissions[i]);
+                        Log.d("Permission", requestedPermissions[i]);
                     }
                 }
             } catch (PackageManager.NameNotFoundException e) {
